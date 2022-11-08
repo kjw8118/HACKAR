@@ -1,8 +1,9 @@
 #include "can.h"
+#include <iostream>
 
 
 CANHS::CANHS(/* args */)
-    : mcp2515(10)
+    : mcp2515(8)
 {
     
 }
