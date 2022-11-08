@@ -1,4 +1,5 @@
 #include "mcp2515.h"
+#include <iostream>
 
 MCP2515::~MCP2515()
 {
@@ -252,9 +253,12 @@ void MCP2515::start_transmit(uint8_t mcp_addr)
 
 void MCP2515::init()
 {
-    this->spi.begin();
+    
+    this->spi.begin(4000000);
+    //std::cout << "Now init SPI" << std::endl;
     this->reset();
-    this->setControlMode(this->MODE_CONFIG);
+    //std::cout << "Now reset MCP2515" << std::endl;
+    this->setControlMode(this->MODE_CONFIG);    
     this->initCANBuffer();
     this->setInterrupt();
     
@@ -265,5 +269,6 @@ void MCP2515::init()
         this->MCP_RXB_RX_STDEXT);
 
     this->setControlMode(this->MODE_CONFIG);
+    //std::cout << "Now start MCP2515" << std::endl;
 }
 
