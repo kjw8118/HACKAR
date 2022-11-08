@@ -183,11 +183,11 @@ namespace GPIO
 
     public:
         SPI(int cs): cs(cs) {};
-        void begin();
+        void begin(int speed);
         void select();
         void unselect();
         uint8_t transfer(uint8_t data);
-        uint8_t read() {return this->transfer(0x00);};
+        uint8_t read();
     };
 
         
