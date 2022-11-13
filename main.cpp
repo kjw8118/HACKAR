@@ -5,9 +5,9 @@
 
 int main()
 {
-	ES582 es582;	
+	ES582 es582(ES582::DOUBLE_CAN);	
 	es582.OpenCANController();
-	//es582.listening();
+	es582.listening();
 
 	system("pause");
 }
